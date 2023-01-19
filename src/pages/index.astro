@@ -1,0 +1,26 @@
+---
+import Card from "../components/Card.astro";
+import Layout from "../layouts/Layout.astro";
+import { hooks } from "../utils/hooks";
+---
+
+<Layout
+  title="atleugim-hooks"
+  subtitle={`To get started, click on any <span class="underline underline-offset-2 decoration-1 text-gray-800">hook</span> to see it in action.`}
+>
+  <section class="flex flex-col items-center space-y-10">
+    <ul role="list" class="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+      {
+        hooks.map((hook) => {
+          return (
+            <Card
+              href={`/hooks/${hook.slug}`}
+              title={hook.name}
+              body={hook.description}
+            />
+          );
+        })
+      }
+    </ul>
+  </section>
+</Layout>

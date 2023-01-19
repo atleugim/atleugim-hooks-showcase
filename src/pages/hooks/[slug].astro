@@ -1,0 +1,29 @@
+---
+import CustomSandpack from "../../components/CustomSandpack";
+import Layout from "../../layouts/Layout.astro";
+import { hooks } from "../../utils/hooks";
+
+export function getStaticPaths() {
+  return hooks.map((hook) => ({
+    params: { slug: hook.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+
+const hook = hooks.find((hook) => hook.slug === slug);
+---
+
+<Layout title={`atleugim-hooks | ${hook.name}`} subtitle={hook.description}>
+  <CustomSandpack code={hook.code} client:only />
+</Layout>
+
+<style>
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+</style>
