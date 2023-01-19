@@ -3,15 +3,11 @@ import CustomSandpack from "../../components/CustomSandpack";
 import Layout from "../../layouts/Layout.astro";
 import { hooks } from "../../utils/hooks";
 
-export function getStaticPaths() {
-  return hooks.map((hook) => ({
-    params: { slug: hook.slug },
-  }));
-}
-
 const { slug } = Astro.params;
 
 const hook = hooks.find((hook) => hook.slug === slug);
+
+if (!hook) return Astro.redirect("/404");
 ---
 
 <Layout title={`atleugim-hooks | ${hook.name}`} subtitle={hook.description}>

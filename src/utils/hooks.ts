@@ -7,7 +7,7 @@ export const hooks = [
       import { useCookie } from "atleugim-hooks";
     
       const App = () => {
-        const { value, updateCookie, deleteCookie } = useCookie("ssid");
+        const { value, updateCookie, deleteCookie } = useCookie("token");
     
         return (
           <div>
@@ -31,7 +31,7 @@ export const hooks = [
     description:
       "Handle any fast changing value, returns after the specified time period.",
     code: `
-      import {useState} from "react";
+      import { useState } from "react";
       import { useDebounce } from "atleugim-hooks";
 
       const App = () => {
@@ -40,9 +40,9 @@ export const hooks = [
       
         return (
           <div>
-            <div class="space-x">
+            <div className="space-x">
             <label id="search">Search:</label>
-            <input id="search" autofocus type="search" onChange={(e) => setValue(e.target.value)} />
+            <input id="search" autoFocus type="search" onChange={(e) => setValue(e.target.value)} />
             </div>
             {
               debouncedValue && <p>Searching for: {debouncedValue}...</p>

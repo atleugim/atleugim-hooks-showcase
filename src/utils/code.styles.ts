@@ -18,13 +18,10 @@ export const styles = `
   .lock {
     height: 200vh;
   }
+  
   .lock-btn {
     position: sticky;
     top: 8px;
-  }
-
-  .on-screen {
-    height: 100vh;
   }
 
   .hover {
